@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: cme-koers-api-lite
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node index.js
