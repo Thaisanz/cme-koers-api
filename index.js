@@ -1,5 +1,5 @@
 const express = require("express");
-const puppeteer = require("puppeteer-core");
+const puppeteer = require("puppeteer");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -7,10 +7,10 @@ const PORT = process.env.PORT || 3000;
 app.get("/", async (req, res) => {
   try {
     const browser = await puppeteer.launch({
-      executablePath: "/usr/bin/google-chrome",
-      headless: true,
-      args: ["--no-sandbox", "--disable-setuid-sandbox"]
-    });
+  headless: true,
+  args: ["--no-sandbox", "--disable-setuid-sandbox"]
+});
+
 
     const page = await browser.newPage();
     await page.goto("https://www.cme.sr", { waitUntil: "networkidle2" });
